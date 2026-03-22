@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import SectionHeading from "./section-heading";
-// import SubmitBtn from "@/components/SubmitBtn";
+import SubmitBtn from "@/components/SubmitBtn";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import toast from "react-hot-toast";
@@ -37,7 +37,7 @@ export default function Contact() {
       </p>
 
       <form className="mt-10 flex flex-col text-black" action={async (formData) => {
-          const { data, error } = await sendEmail(formData);
+          const { error } = await sendEmail(formData);
 
           if (error) {
             toast.error(error);
@@ -61,7 +61,7 @@ export default function Contact() {
           required
           maxLength={5000}
         ></textarea>
-        {/* <SubmitBtn /> */}
+        <SubmitBtn />
       </form>
     </motion.section>
   );
